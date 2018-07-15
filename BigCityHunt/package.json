@@ -19,8 +19,15 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "expo": "^27.0.1",
-    "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "firebase": "^5.2.0",
+    "react": "^16.3.1",
+    "react-native": "^0.55.4",
+    "react-native-facebook-login": "^1.6.1",
+    "react-native-firebase": "^4.3.7",
+    "react-native-router-flux": "^4.0.0-beta.31",
+    "react-redux": "^5.0.7",
+    "redux-thunk": "^2.3.0"
   }
 }

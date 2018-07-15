@@ -19,6 +19,5 @@ yarn-error.log*
 
 # others
 .DS_Store
-firebaseConfig.js
 Debug-iphonesimulator
 Intermediates
