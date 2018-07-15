@@ -1,4 +1,4 @@
-import { HOME_PRESSED } from '../actions/types'
+import { LOGIN_FACEBOOK } from '../actions/types'
 
 
 const INITIAL_STATE = {
@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type){
-    case HOME_PRESSED:
+    case LOGIN_FACEBOOK:
     return { ...state, home: pressed}
   }
 }

@@ -1,1 +1,1 @@
-export const HOME_PRESSED = 'home_pressed'
+export const LOGIN_FACEBOOK = 'login_facebook'

@@ -25,7 +25,6 @@ export default class Home extends React.Component {
         <View style={styles.viewStyle}>
           { this.renderButton() }
         </View>
-        <Text style={{ color: 'white'}}>Login/Signup</Text>
       </View>
     )
   }

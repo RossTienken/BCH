@@ -1,19 +1,36 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Button } from 'react-native'
+import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native'
 import firebase from 'firebase'
 
 const provider = new firebase.auth.FacebookAuthProvider();
 
 export default class Login extends React.Component {
+
+  renderFBButton() {
+   return (
+      <TouchableOpacity
+        style={styles.FBbutton}
+        onPress={this.onFBButtonPress}
+        title="Continue with Facebook"
+      >
+        <Text style={styles.FBbuttonText}>
+           Continue with Facebook
+        </Text>
+      </TouchableOpacity>
+    );
+  }
+  onFBButtonPress = () => {
+    firebase.auth().signInWithRedirect(provider);
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.headText}>Login or Signup!</Text>
-        <Button
-          onPress={() => console.log('dsa')}
-          title="Sign in with facebook"
-          color="#3c50e8"
-        />
+        <View>
+          { this.renderFBButton() }
+        </View>
       </View>
     )
   }
