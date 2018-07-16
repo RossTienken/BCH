@@ -1,18 +1,33 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'BigCityHunt' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
-
   # Pods for BigCityHunt
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  pod 'GoogleSignIn'
 
-  target 'BigCityHunt-tvOSTests' do
+  # pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+
+
+  target 'BigCityHuntTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'BigCityHuntTests' do
+end
+
+target 'BigCityHunt-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for BigCityHunt-tvOS
+
+  target 'BigCityHunt-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

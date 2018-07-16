@@ -1,98 +1,215 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, TouchableOpacity, ActivityIndicator} from 'react-native';
-import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk';
+import { AppRegistry, FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight, Dimensions, TextInput} from 'react-native';
 import firebase from 'firebase';
+
+import { AccessToken, LoginManager, LoginButton } from 'react-native-fbsdk';
+import { GoogleSignin } from 'react-native-google-signin';
+
+import Button from 'react-native-button';
 
 
 
 export default class login extends Component {
-    state = {
-        logged: false,
-        animating: false
-    }
+  constructor(props) {
+    console.log(GoogleSignin)
+      super(props);
+      this.unsubscriber = null;
+      this.state = {
+          isAuthenticated: false,
+          typedEmail: '',
+          typedPassword: '',
+          user: null,
+      };
+  }
+  componentDidMount() {
+      this.unsubscriber = firebase.auth().onAuthStateChanged((changedUser) => {
+          // console.log(`changed User : ${JSON.stringify(changedUser.toJSON())}`);
+          this.setState({ user: changedUser });
+      });
+      GoogleSignin.configure({
+          iosClientId: '346398669245-f7pt9kffmulri60iukdmklt9gv3tibjg.apps.googleusercontent.com', // only for iOS
+      })
+      .then(() => {
+          // you can now call currentUserAsync()
+      });
+  }
+  componentWillUnmount() {
+      if (this.unsubscriber) {
+          this.unsubscriber();
+      }
+  }
+  onAnonymousLogin = () => {
+      firebase.auth().signInAnonymously()
+          .then(() => {
+              console.log(`Login successfully`);
+              this.setState({
+                  isAuthenticated: true,
+              });
+          })
+          .catch((error) => {
+              console.log(`Login failed. Error = ${error}`);
+          });
+  }
+  onRegister = () => {
+      firebase.auth().createUserWithEmailAndPassword(this.state.typedEmail, this.state.typedPassword)
+          .then((loggedInUser) => {
+              this.setState({ user: loggedInUser })
+              console.log(`Register with user : ${JSON.stringify(loggedInUser.toJSON())}`);
+          }).catch((error) => {
+              console.log(`Register fail with error: ${error}`);
+          });
+  }
+  onLogin = () => {
+      firebase.auth().signInWithEmailAndPassword(this.state.typedEmail, this.state.typedPassword)
+          .then((loggedInUser) => {
+              console.log(`Login with user : ${JSON.stringify(loggedInUser.toJSON())}`);
+          }).catch((error) => {
+              console.log(`Login fail with error: ${error}`);
+          });
+  }
+  onLoginFacebook = () => {
+      LoginManager
+          .logInWithReadPermissions(['public_profile', 'email'])
+          .then((result) => {
+              if (result.isCancelled) {
+                  return Promise.reject(new Error('The user cancelled the request'));
+              }
+              console.log(`Login success with permissions: ${result.grantedPermissions.toString()}`);
+              // get the access token
+              return AccessToken.getCurrentAccessToken();
+          })
+          .then(data => {
+              const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
+              return firebase.auth().signInWithCredential(credential);
+          })
+          .then((currentUser) => {
+              console.log(`Facebook Login with user : ${JSON.stringify(currentUser.toJSON())}`);
+          })
+          .catch((error) => {
+              console.log(`Facebook login fail with error: ${error}`);
+          });
+  }
+  onLoginGoogle = () => {
+      GoogleSignin
+          .signIn()
+          .then((data) => {
+              // create a new firebase credential with the token
+              const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken);
+              // login with credential
+              return firebase.auth().signInWithCredential(credential);
+          })
+          .then((currentUser) => {
+              console.log(`Google Login with user : ${JSON.stringify(currentUser.toJSON())}`);
+          })
+          .catch((error) => {
+              console.log(`Login fail with error: ${error}`);
+          });
+  }
 
-    handleLogin = () => {
-        if (!this.state.logged) {
-            LoginManager.logInWithPublishPermissions()
-                .then((result) => {
-                    if (result.isCancelled) {
-                        alert('Cancel login');
-                    }
+  render() {
+      return (
+          <View
+              style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  backgroundColor: 'white',
+                  borderRadius: Platform.OS === 'ios' ? 30 : 0,
+              }}
+          >
+              <Text style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                  margin: 40
+              }}>Login with Firebase </Text>
+              <Button containerStyle={{
+                  padding: 10,
+                  borderRadius: 4,
+                  backgroundColor: 'rgb(226,161,184)'
+              }}
+                  style={{ fontSize: 18, color: 'white' }}
+                  onPress={this.onAnonymousLogin}
+              >Login anonymous</Button>
+              <Text style={{ margin: 20, fontSize: 15, }}>{this.state.isAuthenticated == true ? 'Logged in anonymous' : ''}</Text>
+              <TextInput style={{
+                  height: 40,
+                  width: 200,
+                  margin: 10,
+                  padding: 10,
+                  borderColor: 'gray',
+                  borderWidth: 1,
+                  color: 'black'
+              }}
+                  keyboardType='email-address'
+                  placeholder='Enter your email'
+                  autoCapitalize='none'
+                  onChangeText={
+                      (text) => {
+                          this.setState({ typedEmail: text });
+                      }
+                  }
+              />
+              <TextInput
+                  style={{
+                      height: 40,
+                      width: 200,
+                      margin: 10,
+                      padding: 10,
+                      borderColor: 'gray',
+                      borderWidth: 1,
+                      color: 'black'
+                  }}
+                  keyboardType='default'
+                  placeholder='Enter your password'
+                  secureTextEntry={true}
+                  onChangeText={
+                      (text) => {
+                          this.setState({ typedPassword: text });
+                      }
+                  }
+              />
 
-                    this.setState({ logged: true });
-                    AccessToken.getCurrentAccessToken().then(
-                        (data) => {
-                            // alert(data.accessToken.toString())
-                        }
-                    ).catch(error => alert(error));
-                })
-                .catch(error => console.log(error));
-        } else {
-            this.setState({ logged: false });
-            LoginManager.logOut();
-        }
-    }
-
-    onLogin = async () => {
-        try {
-            this.setState({
-                animating: true
-            });
-            const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
-            const tokenData = await AccessToken.getCurrentAccessToken();
-            const token = tokenData.accessToken.toString();
-            const credential = firebase.auth.FacebookAuthProvider.credential(token);
-            const user = await firebase.auth().signInWithCredential(credential);
-            firebase.database().ref(`/users/${user.uid}/profile`).set({
-                name: user.displayName,
-                email: user.email,
-                avatar: user.photoURL
-            });
-            this.setState({
-                animating: false
-            });
-        } catch (error) {
-            this.setState({
-                animating: false
-            });
-            console.log(error.message);
-        }
-    }
-    render() {
-        return (
-            <View style={styles.container}>
-                <ActivityIndicator
-                    animating={this.state.animating}
-                    color="#ddd"
-                    size="large"
-                />
-                <LoginButton
-                    onLoginFinished={
-                        (error, result) => {
-                            if (error) {
-                                alert("login has error: " + result.error);
-                            } else {
-                                AccessToken.getCurrentAccessToken().then(
-                                    (data) => {
-                                        // alert(data.accessToken.toString())
-                                    }
-                                )
-                            }
-                        }
-                    }
-                    onLogoutFinished={() => console.log("logout.")} />
-            </View>
-        );
-    }
+              <View style={{ flexDirection: 'row' }}>
+                  <Button containerStyle={{
+                      padding: 10,
+                      borderRadius: 4,
+                      margin: 10,
+                      backgroundColor: 'green'
+                  }}
+                      style={{ fontSize: 17, color: 'white' }}
+                      onPress={this.onRegister}
+                  >Register</Button>
+                  <Button containerStyle={{
+                      padding: 10,
+                      margin: 10,
+                      borderRadius: 4,
+                      backgroundColor: 'blue'
+                  }}
+                      style={{ fontSize: 17, color: 'white' }}
+                      onPress={this.onLogin}
+                  >Login</Button>
+              </View>
+              <Button containerStyle={{
+                  padding: 10,
+                  width: 150,
+                  margin: 20,
+                  borderRadius: 4,
+                  backgroundColor: 'rgb(73,104,173)'
+              }}
+                  style={{ fontSize: 18, color: 'white' }}
+                  onPress={this.onLoginFacebook}
+              >Login Facebook</Button>
+              <Button containerStyle={{
+                  padding: 10,
+                  width: 150,
+                  margin: 20,
+                  borderRadius: 4,
+                  backgroundColor: 'rgb(204,84,65)'
+              }}
+                  style={{ fontSize: 18, color: 'white' }}
+                  onPress={this.onLoginGoogle}
+              >Login Google</Button>
+          </View>
+      );
+  }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-});
-
-AppRegistry.registerComponent('login', () => login);

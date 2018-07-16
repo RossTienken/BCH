@@ -10,6 +10,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <RNGoogleSignin/RNGoogleSignin.h>
 
 
 @implementation AppDelegate
@@ -41,11 +42,17 @@
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                        openURL:url
-                                              sourceApplication:sourceApplication
-                                                     annotation:annotation];
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  
+  BOOL handledFacebook = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                        openURL:url
+                                                              sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                                     annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                          ];
+  BOOL handledGoogle = [RNGoogleSignin application:application
+                                           openURL:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                        annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+  // Add any custom logic here.
+  return handledFacebook || handledGoogle;
 }
 @end

@@ -5,8 +5,18 @@ import { createStore, applyMiddleware } from 'redux'
 import firebase from 'firebase'
 import ReduxThunk from 'redux-thunk'
 import reducers from './src/reducers'
-import config from './firebaseConfig'
-firebase.initializeApp(config)
+// import config from './firebaseConfig'
+// firebase.initializeApp(config)
+
+var config = {
+    apiKey: "AIzaSyCd20CfTrLSdTMBAzHhmyfTTNpqqpI7N9U",
+    authDomain: "bigcityhunt-1ac29.firebaseapp.com",
+    databaseURL: "https://bigcityhunt-1ac29.firebaseio.com",
+    projectId: "bigcityhunt-1ac29",
+    storageBucket: "bigcityhunt-1ac29.appspot.com",
+    messagingSenderId: "346398669245"
+  };
+firebase.initializeApp(config);
 
 
 import FluxRouter from './src/components/FluxRouter'
