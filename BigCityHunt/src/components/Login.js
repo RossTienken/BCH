@@ -3,6 +3,8 @@ import { AppRegistry, StyleSheet, Text, View, TouchableOpacity, ActivityIndicato
 import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk';
 import firebase from 'firebase';
 
+
+
 export default class login extends Component {
     state = {
         logged: false,
@@ -11,7 +13,7 @@ export default class login extends Component {
 
     handleLogin = () => {
         if (!this.state.logged) {
-            LoginManager.logInWithPublishPermissions(['publish_actions'])
+            LoginManager.logInWithPublishPermissions()
                 .then((result) => {
                     if (result.isCancelled) {
                         alert('Cancel login');
@@ -20,7 +22,7 @@ export default class login extends Component {
                     this.setState({ logged: true });
                     AccessToken.getCurrentAccessToken().then(
                         (data) => {
-                            alert(data.accessToken.toString())
+                            // alert(data.accessToken.toString())
                         }
                     ).catch(error => alert(error));
                 })
@@ -54,7 +56,6 @@ export default class login extends Component {
                 animating: false
             });
             console.log(error.message);
-            // do something here
         }
     }
     render() {
@@ -66,7 +67,6 @@ export default class login extends Component {
                     size="large"
                 />
                 <LoginButton
-                    publishPermissions={["publish_actions"]}
                     onLoginFinished={
                         (error, result) => {
                             if (error) {
@@ -74,13 +74,13 @@ export default class login extends Component {
                             } else {
                                 AccessToken.getCurrentAccessToken().then(
                                     (data) => {
-                                        alert(data.accessToken.toString())
+                                        // alert(data.accessToken.toString())
                                     }
                                 )
                             }
                         }
                     }
-                    onLogoutFinished={() => alert("logout.")} />
+                    onLogoutFinished={() => console.log("logout.")} />
             </View>
         );
     }
@@ -92,16 +92,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
     },
 });
 
