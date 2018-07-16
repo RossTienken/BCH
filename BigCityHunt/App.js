@@ -6,15 +6,13 @@ import firebase from 'firebase'
 import ReduxThunk from 'redux-thunk'
 import reducers from './src/reducers'
 import config from './firebaseConfig'
+firebase.initializeApp(config)
+
 
 import FluxRouter from './src/components/FluxRouter'
 
 class App extends Component {
-  componentWillMount(){
-    if (!firebase.apps.length) {
-      firebase.initializeApp(config)
-    }
-  }
+
 
   render() {
     console.disableYellowBox = true

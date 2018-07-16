@@ -1,54 +1,108 @@
-import React from 'react'
-import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native'
-import firebase from 'firebase'
+import React, { Component } from 'react';
+import { AppRegistry, StyleSheet, Text, View, TouchableOpacity, ActivityIndicator} from 'react-native';
+import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk';
+import firebase from 'firebase';
 
-const provider = new firebase.auth.FacebookAuthProvider();
+export default class login extends Component {
+    state = {
+        logged: false,
+        animating: false
+    }
 
-export default class Login extends React.Component {
+    handleLogin = () => {
+        if (!this.state.logged) {
+            LoginManager.logInWithPublishPermissions(['publish_actions'])
+                .then((result) => {
+                    if (result.isCancelled) {
+                        alert('Cancel login');
+                    }
 
-  renderFBButton() {
-   return (
-      <TouchableOpacity
-        style={styles.FBbutton}
-        onPress={this.onFBButtonPress}
-        title="Continue with Facebook"
-      >
-        <Text style={styles.FBbuttonText}>
-           Continue with Facebook
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-  onFBButtonPress = () => {
-    firebase.auth().signInWithRedirect(provider);
-  }
+                    this.setState({ logged: true });
+                    AccessToken.getCurrentAccessToken().then(
+                        (data) => {
+                            alert(data.accessToken.toString())
+                        }
+                    ).catch(error => alert(error));
+                })
+                .catch(error => console.log(error));
+        } else {
+            this.setState({ logged: false });
+            LoginManager.logOut();
+        }
+    }
 
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.headText}>Login or Signup!</Text>
-        <View>
-          { this.renderFBButton() }
-        </View>
-      </View>
-    )
-  }
+    onLogin = async () => {
+        try {
+            this.setState({
+                animating: true
+            });
+            const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+            const tokenData = await AccessToken.getCurrentAccessToken();
+            const token = tokenData.accessToken.toString();
+            const credential = firebase.auth.FacebookAuthProvider.credential(token);
+            const user = await firebase.auth().signInWithCredential(credential);
+            firebase.database().ref(`/users/${user.uid}/profile`).set({
+                name: user.displayName,
+                email: user.email,
+                avatar: user.photoURL
+            });
+            this.setState({
+                animating: false
+            });
+        } catch (error) {
+            this.setState({
+                animating: false
+            });
+            console.log(error.message);
+            // do something here
+        }
+    }
+    render() {
+        return (
+            <View style={styles.container}>
+                <ActivityIndicator
+                    animating={this.state.animating}
+                    color="#ddd"
+                    size="large"
+                />
+                <LoginButton
+                    publishPermissions={["publish_actions"]}
+                    onLoginFinished={
+                        (error, result) => {
+                            if (error) {
+                                alert("login has error: " + result.error);
+                            } else {
+                                AccessToken.getCurrentAccessToken().then(
+                                    (data) => {
+                                        alert(data.accessToken.toString())
+                                    }
+                                )
+                            }
+                        }
+                    }
+                    onLogoutFinished={() => alert("logout.")} />
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#244865',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headText: {
-    flex: 1,
-    color: '#98cb51',
-    fontSize: 45,
-    textAlign: 'center',
-    position: 'absolute',
-    top: 25
-  }
-})
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+});
+
+AppRegistry.registerComponent('login', () => login);
