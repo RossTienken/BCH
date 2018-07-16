@@ -27,10 +27,9 @@ export default class login extends Component {
           this.setState({ user: changedUser });
       });
       GoogleSignin.configure({
-          iosClientId: '346398669245-f7pt9kffmulri60iukdmklt9gv3tibjg.apps.googleusercontent.com', // only for iOS
+          iosClientId: '346398669245-f7pt9kffmulri60iukdmklt9gv3tibjg.apps.googleusercontent.com',
       })
       .then(() => {
-          // you can now call currentUserAsync()
       });
   }
   componentWillUnmount() {
