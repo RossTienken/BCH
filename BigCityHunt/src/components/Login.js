@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { AppRegistry, FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight, Dimensions, TextInput} from 'react-native'
 import firebase from 'firebase'
 import { AccessToken, LoginManager, LoginButton } from 'react-native-fbsdk'
 import { GoogleSignin } from 'react-native-google-signin'
 import Button from 'react-native-button'
 import { Actions } from 'react-native-router-flux'
+import { currentUser } from '../actions'
 
 
 
-export default class login extends Component {
+class Login extends Component {
   constructor(props) {
       super(props)
       this.unsubscriber = null
@@ -21,8 +23,10 @@ export default class login extends Component {
   }
   componentDidMount() {
       this.unsubscriber = firebase.auth().onAuthStateChanged((changedUser) => {
-          // console.log(`changed User : ${JSON.stringify(changedUser.toJSON())}`)
           this.setState({ user: changedUser })
+          this.props.currentUser(changedUser.uid)
+          console.log(this.props.userID)
+
       })
       GoogleSignin.configure({
           iosClientId: '346398669245-f7pt9kffmulri60iukdmklt9gv3tibjg.apps.googleusercontent.com',
@@ -213,3 +217,11 @@ export default class login extends Component {
       )
   }
 }
+
+mapStateToProps = state => {
+  const { userID } = state
+  return {
+    userID
+  }
+}
+export default connect(mapStateToProps, { currentUser })(Login)

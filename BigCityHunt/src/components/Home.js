@@ -8,7 +8,7 @@ class Home extends React.Component {
 
   buttonPress = () => {
     this.props.toLogin()
-    return Actions.maps
+    return Actions.login
   }
   renderButton(){
     return (
