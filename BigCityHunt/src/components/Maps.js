@@ -2,85 +2,62 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import { homePressed } from '../actions'
+import MapView from 'react-native-maps'
+import { Marker } from 'react-native-maps'
+import { toLogin } from '../actions'
 
-export default class Maps extends React.Component {
 
-  buttonPress() {
-    return Actions.login
-  }
-
-  renderButton(){
-    return (
-      <Button onPress={ this.buttonPress() }>
-        MAPS!
-      </Button>
-    )
-  }
+class Maps extends React.Component {
 
   render() {
     return (
       <View style={styles.container}>
-        <Image style={{ height: 400, width: 400}} source={require('../../public/BCH.png')} />
-        <View style={styles.viewStyle}>
-          { this.renderButton() }
-        </View>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: 39.747725,
+            longitude:  -104.988957,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+        {this.props.hunts.map(marker => (
+          <Marker
+            coordinate={{ latitude: parseFloat(marker.lat),
+                          longitude: parseFloat(marker.long) }}
+            title={marker.hunt_id}
+          />
+        ))}
+        </MapView>
       </View>
     )
   }
 }
 
-const Button = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles
-
-  return (
-    <TouchableOpacity style={ buttonStyle } onPress={ onPress }>
-      <Text style={ textStyle }>
-        {children}
-      </Text>
-    </TouchableOpacity>
-  )
+mapStateToProps = state => {
+  const { hunts } = state
+  return {
+    hunts
+  }
 }
+export default connect(mapStateToProps, { toLogin })(Maps)
 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#244865',
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
-  textStyle: {
-    alignSelf: 'center',
-    textAlign: 'center',
-    color: '#244865',
-    fontSize: 40,
-    fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10
-  },
-  buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    height: 100,
-    width: 100,
-    backgroundColor: '#98cb51',
-    borderRadius: 50,
-    borderWidth: 2,
-    borderColor: 'white',
-    marginLeft: 75,
-    marginRight: 75
-  },
-  viewStyle:{
-    marginTop:5,
-    marginBottom:5,
-    paddingTop: 5,
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    borderColor: '#ddd',
-    position: 'relative',
-    marginLeft:25,
-    marginRight:25
+  map: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
   }
 })

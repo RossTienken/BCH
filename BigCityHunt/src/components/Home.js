@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import { homePressed } from '../actions'
+import { toLogin } from '../actions'
 
-export default class Home extends React.Component {
+class Home extends React.Component {
 
-  buttonPress() {
-    return Actions.login
+  buttonPress = () => {
+    this.props.toLogin()
+    return Actions.maps
   }
-
   renderButton(){
     return (
       <Button onPress={ this.buttonPress() }>
@@ -29,6 +29,14 @@ export default class Home extends React.Component {
     )
   }
 }
+
+mapStateToProps = state => {
+  const { hunts } = state
+  return {
+    hunts
+  }
+}
+export default connect(mapStateToProps, { toLogin })(Home)
 
 const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles

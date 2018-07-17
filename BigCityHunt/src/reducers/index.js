@@ -1,13 +1,14 @@
-import { LOGIN_FACEBOOK } from '../actions/types'
-
+import { TO_LOGIN } from '../actions/types'
 
 const INITIAL_STATE = {
-  home: false
+  hunts: {},
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type){
-    case LOGIN_FACEBOOK:
-    return { ...state, home: pressed}
+    case TO_LOGIN:
+      return { ...state, hunts: action.payload}
+    default:
+       return state
   }
 }

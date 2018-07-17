@@ -1,1 +1,1 @@
-export const LOGIN_FACEBOOK = 'login_facebook'
+export const TO_LOGIN = 'to_login'
