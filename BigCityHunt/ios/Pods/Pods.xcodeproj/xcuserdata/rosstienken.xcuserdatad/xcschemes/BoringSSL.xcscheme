@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '07035F7583D5B60CA89ACB63872ACA07'
-               BlueprintName = 'BoringSSL'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libBoringSSL.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "52BB44DA77A46D3D53FADF55DD5BBE37"
+               BlueprintName = "BoringSSL"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libBoringSSL.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

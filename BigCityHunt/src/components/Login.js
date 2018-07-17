@@ -1,108 +1,109 @@
-import React, { Component } from 'react';
-import { AppRegistry, FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight, Dimensions, TextInput} from 'react-native';
-import firebase from 'firebase';
-
-import { AccessToken, LoginManager, LoginButton } from 'react-native-fbsdk';
-import { GoogleSignin } from 'react-native-google-signin';
-
-import Button from 'react-native-button';
+import React, { Component } from 'react'
+import { AppRegistry, FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight, Dimensions, TextInput} from 'react-native'
+import firebase from 'firebase'
+import { AccessToken, LoginManager, LoginButton } from 'react-native-fbsdk'
+import { GoogleSignin } from 'react-native-google-signin'
+import Button from 'react-native-button'
+import { Actions } from 'react-native-router-flux'
 
 
 
 export default class login extends Component {
   constructor(props) {
-    console.log(GoogleSignin)
-      super(props);
-      this.unsubscriber = null;
+      super(props)
+      this.unsubscriber = null
       this.state = {
           isAuthenticated: false,
           typedEmail: '',
           typedPassword: '',
           user: null,
-      };
+      }
   }
   componentDidMount() {
       this.unsubscriber = firebase.auth().onAuthStateChanged((changedUser) => {
-          // console.log(`changed User : ${JSON.stringify(changedUser.toJSON())}`);
-          this.setState({ user: changedUser });
-      });
+          // console.log(`changed User : ${JSON.stringify(changedUser.toJSON())}`)
+          this.setState({ user: changedUser })
+      })
       GoogleSignin.configure({
           iosClientId: '346398669245-f7pt9kffmulri60iukdmklt9gv3tibjg.apps.googleusercontent.com',
       })
       .then(() => {
-      });
+      })
   }
   componentWillUnmount() {
       if (this.unsubscriber) {
-          this.unsubscriber();
+          this.unsubscriber()
       }
   }
   onAnonymousLogin = () => {
       firebase.auth().signInAnonymously()
           .then(() => {
-              console.log(`Login successfully`);
+              this.loginSuccess()
               this.setState({
                   isAuthenticated: true,
-              });
+              })
           })
           .catch((error) => {
-              console.log(`Login failed. Error = ${error}`);
-          });
+              console.log(`Login failed. Error = ${error}`)
+          })
   }
   onRegister = () => {
       firebase.auth().createUserWithEmailAndPassword(this.state.typedEmail, this.state.typedPassword)
           .then((loggedInUser) => {
               this.setState({ user: loggedInUser })
-              console.log(`Register with user : ${JSON.stringify(loggedInUser.toJSON())}`);
+              this.loginSuccess()
           }).catch((error) => {
-              console.log(`Register fail with error: ${error}`);
-          });
+              console.log(`Register fail with error: ${error}`)
+          })
   }
   onLogin = () => {
       firebase.auth().signInWithEmailAndPassword(this.state.typedEmail, this.state.typedPassword)
           .then((loggedInUser) => {
-              console.log(`Login with user : ${JSON.stringify(loggedInUser.toJSON())}`);
+              this.loginSuccess()
           }).catch((error) => {
-              console.log(`Login fail with error: ${error}`);
-          });
+              console.log(`Login fail with error: ${error}`)
+          })
   }
   onLoginFacebook = () => {
       LoginManager
           .logInWithReadPermissions(['public_profile', 'email'])
           .then((result) => {
               if (result.isCancelled) {
-                  return Promise.reject(new Error('The user cancelled the request'));
+                  return Promise.reject(new Error('The user cancelled the request'))
               }
-              console.log(`Login success with permissions: ${result.grantedPermissions.toString()}`);
               // get the access token
-              return AccessToken.getCurrentAccessToken();
+              return AccessToken.getCurrentAccessToken()
           })
           .then(data => {
-              const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
-              return firebase.auth().signInWithCredential(credential);
+              const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken)
+              return firebase.auth().signInWithCredential(credential)
           })
           .then((currentUser) => {
-              console.log(`Facebook Login with user : ${JSON.stringify(currentUser.toJSON())}`);
+              this.loginSuccess()
           })
           .catch((error) => {
-              console.log(`Facebook login fail with error: ${error}`);
-          });
+              console.log(`Facebook login fail with error: ${error}`)
+          })
   }
   onLoginGoogle = () => {
       GoogleSignin
           .signIn()
           .then((data) => {
               // create a new firebase credential with the token
-              const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken);
+              const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
               // login with credential
-              return firebase.auth().signInWithCredential(credential);
+              return firebase.auth().signInWithCredential(credential)
           })
           .then((currentUser) => {
-              console.log(`Google Login with user : ${JSON.stringify(currentUser.toJSON())}`);
+              this.loginSuccess()
           })
           .catch((error) => {
-              console.log(`Login fail with error: ${error}`);
-          });
+              console.log(`Login fail with error: ${error}`)
+          })
+  }
+
+  loginSuccess = () => {
+    return Actions.maps()
   }
 
   render() {
@@ -144,7 +145,7 @@ export default class login extends Component {
                   autoCapitalize='none'
                   onChangeText={
                       (text) => {
-                          this.setState({ typedEmail: text });
+                          this.setState({ typedEmail: text })
                       }
                   }
               />
@@ -163,7 +164,7 @@ export default class login extends Component {
                   secureTextEntry={true}
                   onChangeText={
                       (text) => {
-                          this.setState({ typedPassword: text });
+                          this.setState({ typedPassword: text })
                       }
                   }
               />
@@ -209,6 +210,6 @@ export default class login extends Component {
                   onPress={this.onLoginGoogle}
               >Login Google</Button>
           </View>
-      );
+      )
   }
 }

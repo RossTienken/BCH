@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '45EBDFA006034991F0150CBA7ED40B9B'
-               BlueprintName = 'gRPC-RxLibrary'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libgRPC-RxLibrary.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CDF42501A49D53846677ABA1483121AD"
+               BlueprintName = "gRPC-RxLibrary"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libgRPC-RxLibrary.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

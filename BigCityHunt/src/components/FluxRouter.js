@@ -20,7 +20,7 @@ const FluxRouter=()=>{
           navBar={null}
           component={ Login }
           />
-        <Scene key="map"
+        <Scene key="maps"
           hideNavBar
           navBar={null}
           component={ Maps }

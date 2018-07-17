@@ -36,7 +36,6 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* BigCityHuntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BigCityHuntTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		315635772E79D7876ECD0054 /* libPods-BigCityHuntTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C1E941C07473FECB91DF2A /* libPods-BigCityHuntTests.a */; };
 		3761CDE98C47484B858BEBE7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858A64C9EFCA4F68B9573161 /* SystemConfiguration.framework */; };
 		4F5B780CCE714FC1BCB6D930 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C71DB271D046C3897AF689 /* libz.tbd */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -48,10 +47,8 @@
 		67F21B29E9C7476096D21AA7 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A50075E6DBF04034A6724A6C /* libRCTFBSDK.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		99D664D16E3A4606875445CD /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5738DF42B0484CF7B9AE6620 /* libRNFirebase.a */; };
-		9D8668A3308BB0CCF6E5EFB4 /* libPods-BigCityHunt-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9F760498E11A9EB03F386F /* libPods-BigCityHunt-tvOSTests.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CECB475421014FFB97CCC005 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A937D621D0492A90378148 /* libRNGoogleSignin.a */; };
-		DCC66AF472AB1C54999D8951 /* libPods-BigCityHunt-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B217B4AEE6E9FC59F8C217DB /* libPods-BigCityHunt-tvOS.a */; };
 		E3339F756AA84E4B81249857 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB829F5B0BF43CF941E1B5C /* SafariServices.framework */; };
 		EA37CF5769D349459C5DB50B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1850EAC3B640F3B395ACF1 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
@@ -374,7 +371,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BigCityHunt/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BigCityHunt/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		26960CA9CF6410270D0A2DFE /* Pods-BigCityHunt-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigCityHunt-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BigCityHunt-tvOSTests/Pods-BigCityHunt-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* BigCityHunt-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BigCityHunt-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* BigCityHunt-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BigCityHunt-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,7 +378,6 @@
 		3B9F760498E11A9EB03F386F /* libPods-BigCityHunt-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BigCityHunt-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5738DF42B0484CF7B9AE6620 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		578399D2D3F0CF1911EBD341 /* libPods-BigCityHunt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BigCityHunt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		587C7E9C0E7280EBCAB122BA /* Pods-BigCityHuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigCityHuntTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BigCityHuntTests/Pods-BigCityHuntTests.debug.xcconfig"; sourceTree = "<group>"; };
 		59C1E941C07473FECB91DF2A /* libPods-BigCityHuntTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BigCityHuntTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		62FB77FB33740428D21A93D2 /* Pods-BigCityHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigCityHunt.release.xcconfig"; path = "Pods/Target Support Files/Pods-BigCityHunt/Pods-BigCityHunt.release.xcconfig"; sourceTree = "<group>"; };
@@ -399,11 +394,7 @@
 		B217B4AEE6E9FC59F8C217DB /* libPods-BigCityHunt-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BigCityHunt-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BD2545760F489ABBDFB2A3 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		BA1B491ACEDC4AE584337867 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
-		BA8FA8305B49EE28AA45D42A /* Pods-BigCityHunt-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigCityHunt-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BigCityHunt-tvOS/Pods-BigCityHunt-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		C653EC9B3EC6E06EADC09559 /* Pods-BigCityHuntTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigCityHuntTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BigCityHuntTests/Pods-BigCityHuntTests.release.xcconfig"; sourceTree = "<group>"; };
-		D1256F9C5122868FAFB8F4BD /* Pods-BigCityHunt-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigCityHunt-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BigCityHunt-tvOSTests/Pods-BigCityHunt-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F1A937D621D0492A90378148 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
-		F3F0BCE40BD1EF3CE84CED14 /* Pods-BigCityHunt-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigCityHunt-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BigCityHunt-tvOS/Pods-BigCityHunt-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,7 +403,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				315635772E79D7876ECD0054 /* libPods-BigCityHuntTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +446,6 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-				DCC66AF472AB1C54999D8951 /* libPods-BigCityHunt-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +454,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				9D8668A3308BB0CCF6E5EFB4 /* libPods-BigCityHunt-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,12 +718,6 @@
 			children = (
 				8531CD7BAA08A36F00E61596 /* Pods-BigCityHunt.debug.xcconfig */,
 				62FB77FB33740428D21A93D2 /* Pods-BigCityHunt.release.xcconfig */,
-				F3F0BCE40BD1EF3CE84CED14 /* Pods-BigCityHunt-tvOS.debug.xcconfig */,
-				BA8FA8305B49EE28AA45D42A /* Pods-BigCityHunt-tvOS.release.xcconfig */,
-				D1256F9C5122868FAFB8F4BD /* Pods-BigCityHunt-tvOSTests.debug.xcconfig */,
-				26960CA9CF6410270D0A2DFE /* Pods-BigCityHunt-tvOSTests.release.xcconfig */,
-				587C7E9C0E7280EBCAB122BA /* Pods-BigCityHuntTests.debug.xcconfig */,
-				C653EC9B3EC6E06EADC09559 /* Pods-BigCityHuntTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -747,12 +729,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BigCityHuntTests" */;
 			buildPhases = (
-				719CB4D08AD837E9EE9AABAB /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				358E6C696926920A5C4BDEE2 /* [CP] Embed Pods Frameworks */,
-				E154EC39334DE3F1DFA73D73 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -773,7 +752,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				6B6272EBE94B8305FDC3F576 /* [CP] Embed Pods Frameworks */,
 				9A55E65D30C3FE130080716C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -789,13 +767,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BigCityHunt-tvOS" */;
 			buildPhases = (
-				AE99782935EADABD1C4DA8E2 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
 				2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */,
-				7A3B20DCF93B193B16C7B014 /* [CP] Embed Pods Frameworks */,
-				421207621E1D4E73D823C94E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -810,12 +785,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BigCityHunt-tvOSTests" */;
 			buildPhases = (
-				99E33D57DB85B7C86812ED2A /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
-				0A73D2C44D14F766685A5602 /* [CP] Embed Pods Frameworks */,
-				4C7C1EE6E7EAF34E297435CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1274,21 +1246,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		0A73D2C44D14F766685A5602 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHunt-tvOSTests/Pods-BigCityHunt-tvOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1302,117 +1259,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		358E6C696926920A5C4BDEE2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHuntTests/Pods-BigCityHuntTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		421207621E1D4E73D823C94E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHunt-tvOS/Pods-BigCityHunt-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4C7C1EE6E7EAF34E297435CC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHunt-tvOSTests/Pods-BigCityHunt-tvOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6B6272EBE94B8305FDC3F576 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHunt/Pods-BigCityHunt-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		719CB4D08AD837E9EE9AABAB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BigCityHuntTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A3B20DCF93B193B16C7B014 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHunt-tvOS/Pods-BigCityHunt-tvOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		99E33D57DB85B7C86812ED2A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BigCityHunt-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		9A55E65D30C3FE130080716C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1436,24 +1282,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHunt/Pods-BigCityHunt-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AE99782935EADABD1C4DA8E2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BigCityHunt-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B8F56AC1CA8BE72BB3113C13 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1470,21 +1298,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E154EC39334DE3F1DFA73D73 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigCityHuntTests/Pods-BigCityHuntTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1554,7 +1367,6 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 587C7E9C0E7280EBCAB122BA /* Pods-BigCityHuntTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1585,7 +1397,6 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C653EC9B3EC6E06EADC09559 /* Pods-BigCityHuntTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1664,7 +1475,6 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3F0BCE40BD1EF3CE84CED14 /* Pods-BigCityHunt-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1701,7 +1511,6 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA8FA8305B49EE28AA45D42A /* Pods-BigCityHunt-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1738,7 +1547,6 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1256F9C5122868FAFB8F4BD /* Pods-BigCityHunt-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1774,7 +1582,6 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26960CA9CF6410270D0A2DFE /* Pods-BigCityHunt-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

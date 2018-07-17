@@ -21,7 +21,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={{ height: 400, width: 400}} source={require('../../img/BCH.png')} />
+        <Image style={{ height: 400, width: 400}} source={require('../../public/BCH.png')} />
         <View style={styles.viewStyle}>
           { this.renderButton() }
         </View>
